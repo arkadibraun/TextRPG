@@ -22,6 +22,7 @@ public class Charakterbuild {
 	}
 
 	public void pickARace() {
+	 boolean entry = true;
 		System.out.printf(
 				"Bitte wähle eine Rasse aus\n 1)Zwerg(+2 STR, +1 KON, +1 CHA, +1WEI"
 				+ "\n 2)Elf(+2 GES, +1 WEI, +2 INT \n"
@@ -29,7 +30,7 @@ public class Charakterbuild {
 				+ " 4)Mensch(+1 ALLES) \n"
 				+ " 5)Ork(+2 STR, +2 KON, +1 WEI) \n"
 				+ " 6)Besessener(+1 ALLES) \n");
-
+		do {
 		switch (scanner.nextInt()) {
 		case 1:
 			System.out.println("Du Bist nun ein Zwerg, wähle bitte nun eine Klasse-->");
@@ -57,14 +58,18 @@ public class Charakterbuild {
 			break;
 		default:
 			System.out.println("Bitte eine gültige Eingabe zwischen 1 und 6 machen");
+			entry = false;
 
 		}
+		}while(entry==false);
 	}
 
 	public void pickAClass() {
+		boolean entry = true;
 		System.out.printf(
 				"Bitte wähle eine Klasse aus\n 1)Barbar\n 2)Magier \n 3)Paladain \n 4)Priester \n 5)Ranger \n 6)Schurke \n 7)Hexenmeister \n 8)Krieger \n");
-
+		
+		do {
 		switch (scanner.nextInt()) {
 		case 1:
 			System.out.println("Du Bist nun ein Barbar");
@@ -100,7 +105,10 @@ public class Charakterbuild {
 			break;
 		default:
 			System.out.println("Bitte eine gültige Eingabe zwischen 1 und 8 machen");
+			pickAClass();
+			entry = false;
 		}
+		}while (entry == false);
 	}
 
 }

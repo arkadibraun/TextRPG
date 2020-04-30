@@ -7,7 +7,7 @@ public class Charakter {
 
 	private String name;
 	
-	Object[] stats;
+	Object[] stats = new Object[2];
 	
 	public void takeRace(Rasse rasse) {
 		stats[0]= rasse;
