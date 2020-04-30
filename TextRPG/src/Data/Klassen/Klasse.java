@@ -12,5 +12,6 @@ public class Klasse{
 	private int wis;
 	private int intel;
 	private int atk;
+	private int money;
 
 }
