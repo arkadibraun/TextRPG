@@ -1,4 +1,4 @@
-package Data;
+package Data.Objekte;
 
 public abstract class Weapons extends Item {
 
