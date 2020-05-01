@@ -61,10 +61,12 @@ public class Charakterbuild {
 			break;
 		default:
 			System.out.println("Bitte eine gültige Eingabe zwischen 1 und 6 machen");
+			pickARace();
 			entry = false;
+			pickAClass();
 
 		}
-		}while(entry==false);
+		}while(entry == false);
 	}
 
 	public void pickAClass() {
@@ -77,48 +79,50 @@ public class Charakterbuild {
 		case 1:
 			System.out.println("Du Bist nun ein Barbar");
 			charakter.takeClass(new Barbar());
-			charakter.invAdd(new Axe());
+			charakter.invAdd(new Axe(" A", "Axt", 0, 0, 0, 0, 0, 0, 0.0));
 			break;
 		case 2:
 			System.out.println("Du Bist nun ein Magier");
 			charakter.takeClass(new Mage());
-			charakter.invAdd(new Staff());
+			charakter.invAdd(new Staff(" ", " ", 0, 0, 0, 0, 0, 0));
 			break;
 		case 3:
 			System.out.println("Du Bist nun ein Paladin");
 			charakter.takeClass(new Paladin());
-			charakter.invAdd(new Maul());
+			charakter.invAdd(new Maul(" ", " ", 0, 0, 0, 0, 0, 0));
 			break;
 		case 4:
 			System.out.println("Du Bist nun ein Priester");
 			charakter.takeClass(new Priest());
-			charakter.invAdd(new Staff());
+			charakter.invAdd(new Staff(" ", " ", 0, 0, 0, 0, 0, 0));
 			break;
 		case 5:
 			System.out.println("Du Bist nun ein Ranger");
 			charakter.takeClass(new Ranger());
-			charakter.invAdd(new Bow());
+			charakter.invAdd(new Bow(" ", " ", 0, 0, 0, 0, 0, 0));
 			break;
 		case 6:
 			System.out.println("Du Bist nun ein Schurke");
 			charakter.takeClass(new Rogue());
-			charakter.invAdd(new Dagger());
+			charakter.invAdd(new Dagger(" ", " ", 0, 0, 0, 0, 0, 0));
 			break;
 		case 7:
 			System.out.println("Du Bist nun ein Hexenmeister");
 			charakter.takeClass(new Warlock());
-			charakter.invAdd(new Staff());
+			charakter.invAdd(new Staff(" ", " ", 0, 0, 0, 0, 0, 0));
 			break;
 		case 8:
 			System.out.println("Du Bist nun ein Krieger");
 			charakter.takeClass(new Warrior());
-			charakter.invAdd(new Sword());
-			charakter.invAdd(new Shield());
+			charakter.invAdd(new Sword(" ", " ", 0, 0, 0, 0, 0, 0));
+			charakter.invAdd(new Shield(" ", " ", 0, 0, 0, 0, 0, 0, 0));
 			break;
 		default:
 			System.out.println("Bitte eine gültige Eingabe zwischen 1 und 8 machen");
 			pickAClass();
 			entry = false;
+			//todo
+			charakter.showInv();
 		}
 		}while (entry == false);
 	}
