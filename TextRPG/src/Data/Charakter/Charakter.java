@@ -23,11 +23,8 @@ public class Charakter {
 	}
 
 	public void showInv() {
-		Iterator<Item> iterator = inv.iterator();
-		
-		while (iterator.hasNext()) {
-			
-			System.out.println();
+		for(Item item: inv) {
+			System.out.println(item.getName() + "\n" + item.getDescription());
 		}
 	}
 

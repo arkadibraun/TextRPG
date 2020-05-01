@@ -6,7 +6,6 @@ public class Game {
 		
 		Charakterbuild cb = new Charakterbuild();
 		cb.create();
-		
 
 	}
 
