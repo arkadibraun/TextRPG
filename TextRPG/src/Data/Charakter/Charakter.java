@@ -21,7 +21,9 @@ public class Charakter {
 	public void invAdd(Item item) {
 		inv.add(item);
 	}
-
+/*
+ * ok
+ */
 	public void showInv() {
 		for(Item item: inv) {
 			System.out.println(item.getName() + "\n" + item.getDescription());
