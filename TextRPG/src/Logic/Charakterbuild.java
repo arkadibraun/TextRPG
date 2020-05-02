@@ -21,19 +21,18 @@ public class Charakterbuild {
 		System.out.println("--------------------------------------------------------------------------");
 		pickAClass();
 		System.out.println("--------------------------------------------------------------------------");
-		punkteverteilen();//
-		charakter.showChar();
-		// to-do char info
+		punkteverteilen();
 	}
 
 	public void pickARace() {
-		boolean entry = true;
-		System.out.printf("Bitte wähle eine Rasse aus\n" + " 1)Zwerg \t\t (+2 STR, +1 KON, +1 CHA, +1WEI)\n"
-				+ " 2)Elf \t\t\t (+2 GES, +1 WEI, +2 INT) \n" + " 3)Goblin \t\t (+1 KON, +2 GES, +1 WEI, +1 INT) \n"
-				+ " 4)Mensch \t\t (+1 ALLES) \n" + " 5)Ork \t\t\t (+2 STR, +2 KON, +1 WEI) \n"
-				+ " 6)Besessener \t\t (+1 ALLES) \n");
-		do {
-			switch (scanner.nextInt()) {
+		int eingabe = 0;
+		while (eingabe == 0) {
+			System.out.printf("Bitte wähle eine Rasse aus\n" + " 1)Zwerg \t\t (+2 STR, +1 KON, +1 CHA, +1WEI)\n"
+					+ " 2)Elf \t\t\t (+2 GES, +1 WEI, +2 INT) \n" + " 3)Goblin \t\t (+1 KON, +2 GES, +1 WEI, +1 INT) \n"
+					+ " 4)Mensch \t\t (+1 ALLES) \n" + " 5)Ork \t\t\t (+2 STR, +2 KON, +1 WEI) \n"
+					+ " 6)Besessener \t\t (+1 ALLES) \n");
+			eingabe = scanner.nextInt();
+			switch (eingabe) {
 			case 1:
 				System.out.println("Du Bist nun ein Zwerg, wähle bitte nun eine Klasse-->");
 				charakter.takeRace(new Dwarf(0, 2, 1, 0, 1, 1, 0));
@@ -61,27 +60,26 @@ public class Charakterbuild {
 			default:
 				System.out.println("Bitte eine gültige Eingabe zwischen 1 und 6 machen");
 				pickARace();
-				entry = false;
-				pickAClass();
-
+				eingabe = 1;
 			}
-		} while (entry == false);
+		}
 	}
 
 	public void pickAClass() {
-		boolean entry = true;
-		System.out
-				.printf("Bitte wähle eine Klasse aus\n" + " 1)Barbar \t\t (14 AC, +2 HP, +1 STR, +1 KON, 500 Münzen) \n"
-						+ " 2)Magier \t\t (5 AC, +3 INT, +2 CHA, 500 Münzen) \n"
-						+ " 3)Paladain \t\t (16 AC, +2 HP, +1 KON, +1 CHA, 900 Münzen)  \n"
-						+ " 4)Priester \t\t (7 AC, +1 STR, +1 KON, +1 GES, 700 Münzen) \n"
-						+ " 5)Ranger \t\t (10 AC, +1 HP, +2 GES, +1 WIS, 800 Münzen)\n"
-						+ " 6)Schurke \t\t (10 AC, +1 HP, +1 CHA, +1 GES, 1+ INT, 1000 Münzen)\n"
-						+ " 7)Hexenmeister \t (5 AC, +2 INT, +2 CHA, +1 WIS, 700 Münzen) \n"
-						+ " 8)Krieger \t\t (16 AC,+1 HP, +2 STR, +1 GES, 800 Münzen) \n");
+		int eingabe = 0;
+		while (eingabe == 0) {
+			System.out.printf(
+					"Bitte wähle eine Klasse aus\n" + " 1)Barbar \t\t (14 AC, +2 HP, +1 STR, +1 KON, 500 Münzen) \n"
+							+ " 2)Magier \t\t (5 AC, +3 INT, +2 CHA, 500 Münzen) \n"
+							+ " 3)Paladain \t\t (16 AC, +2 HP, +1 KON, +1 CHA, 900 Münzen)  \n"
+							+ " 4)Priester \t\t (7 AC, +1 STR, +1 KON, +1 GES, 700 Münzen) \n"
+							+ " 5)Ranger \t\t (10 AC, +1 HP, +2 GES, +1 WIS, 800 Münzen)\n"
+							+ " 6)Schurke \t\t (10 AC, +1 HP, +1 CHA, +1 GES, 1+ INT, 1000 Münzen)\n"
+							+ " 7)Hexenmeister \t (5 AC, +2 INT, +2 CHA, +1 WIS, 700 Münzen) \n"
+							+ " 8)Krieger \t\t (16 AC,+1 HP, +2 STR, +1 GES, 800 Münzen) \n");
 
-		do {
-			switch (scanner.nextInt()) {
+			eingabe = scanner.nextInt();
+			switch (eingabe) {
 			case 1:
 				System.out.println("Du Bist nun ein Barbar \nDu erhälst nun 500 Münzen");
 				charakter.takeClass(new Barbar(14, 2, 1, 1, 0, 0, 0, 0, 500));
@@ -137,17 +135,87 @@ public class Charakterbuild {
 			default:
 				System.out.println("Bitte wähle einen gültigen Wert");
 				pickAClass();
-				entry = false;
-				// todo
-				charakter.showInv();
+				eingabe = 1;
+//				punkteverteilen();
 			}
-		} while (entry == false);
+		}
+	}
+
+	public void punkteverteilen() {
+		int point = 6;
+		while (point == 6) {
+			point = 27;
+
+			System.out.println("Du hast nun " + point + " Kostenpunkte die du ausgeben kannst");
+			System.out.printf("Fähigkiten Preise\n" + " 8 Skill Points kosten 0 (MODIFIKATOR = -1)\n"
+					+ " 9 Skill Points kosten 1 (MODIFIKATOR = -1)\n" + "10 Skill Points kosten 2 (MODIFIKATOR = +0)\n"
+					+ "11 Skill Points kosten 3 (MODIFIKATOR = +0)\n" + "12 Skill Points kosten 4 (MODIFIKATOR = +1)\n"
+					+ "13 Skill Points kosten 5 (MODIFIKATOR = +1)\n" + "14 Skill Points kosten 7 (MODIFIKATOR = +2)\n"
+					+ "15 Skill Points kosten 9 (MODIFIKATOR = +2)\n"
+					+ "*****BEDENKE DASS DU DURCH RASSE UND KLASSE EBENFALLS SKILLPUNKTE BEKOMMST*****\n");
+			// TODO DIE PUNKTE RÜBER IN DIE CHRAKLASSE RÜBER SCHREIBEN UND MODI BERECHNEN
+
+			System.out.println("Bitte gib die Kosten für die Stärke an die du ausgeben möchtest");
+
+			point = strPunkte(point);
+			System.out.println("Du hast noch " + point + " übrig");
+			System.out.println("--------------------------------------------------------------------------");
+			System.out.println("Bitte gib die Kosten für die Konstitution an die du ausgeben möchtest");
+			abfragePunkteverteilen(point);
+
+			point = conPunkte(point);
+			System.out.println("Du hast noch " + point + " übrig");
+			System.out.println("--------------------------------------------------------------------------");
+			System.out.println("Bitte gib die Kosten für die Geschicklichkeit an die du ausgeben möchtest");
+			abfragePunkteverteilen(point);
+
+			point = dexPunkte(point);
+			System.out.println("Du hast noch " + point + " übrig");
+			System.out.println("--------------------------------------------------------------------------");
+			System.out.println("Bitte gib die Kosten für das Charisma an die du ausgeben möchtest");
+			abfragePunkteverteilen(point);
+
+			point = chaPunkte(point);
+			System.out.println("Du hast noch " + point + " übrig");
+			System.out.println("--------------------------------------------------------------------------");
+			System.out.println("Bitte gib die Kosten für die Weisheit an die du ausgeben möchtest");
+			abfragePunkteverteilen(point);
+
+			point = wisPunkte(point);
+			System.out.println("Du hast noch " + point + " übrig");
+			System.out.println("--------------------------------------------------------------------------");
+			System.out.println("Bitte gib die Kosten für die Inteligenz an die du ausgeben möchtest");
+			abfragePunkteverteilen(point);
+
+			point = intPunkte(point);
+			System.out.println("Du hast noch " + point + " übrig");
+			System.out.println("--------------------------------------------------------------------------");
+			abfragePunkteverteilen(point);
+
+			if (point != 0) {
+				System.out.println("Es folgt die erneute Eingabe der Werte, du musst am Ende auf 0 kommen!");
+				punkteverteilen();
+			}
+
+		}
+
+	}
+
+	public void abfragePunkteverteilen(int point) {
+		if (point == 0) {
+			point = 1;
+			charakter.showChar();
+		} else if (point < 0) {
+			System.out.println("Es folgt die erneute Eingabe der Werte, du musst am Ende auf 0 kommen!");
+			punkteverteilen();
+		} else {
+
+		}
 	}
 
 	public int strPunkte(int points) {
-		int input;
-		boolean verf = true;
-		do {
+		int input = 8;
+		while (input == 8) {
 			input = scanner.nextInt();
 			switch (input) {
 			case 0:
@@ -177,19 +245,19 @@ public class Charakterbuild {
 			default:
 				System.out.println("Bitte wähle einen gültigen Wert");
 				strPunkte(points);
-				verf = false;
+				input = 8;
 
 			}
-		} while (verf == false);
+		}
 
 		points = points - input;
 		return points;
 	}
 
 	public int conPunkte(int points) {
-		int input;
-		boolean verf = true;
-		do {
+		int input = 8;
+		while (input == 8) {
+
 			input = scanner.nextInt();
 
 			switch (input) {
@@ -219,10 +287,11 @@ public class Charakterbuild {
 				break;
 			default:
 				System.out.println("Bitte wähle einen gültigen Wert");
-				verf = false;
+				conPunkte(points);
+				input = 8;
 
 			}
-		} while (verf == false);
+		}
 
 		points = points - input;
 		return points;
@@ -230,9 +299,9 @@ public class Charakterbuild {
 	}
 
 	public int dexPunkte(int points) {
-		int input;
-		boolean verf = true;
-		do {
+		int input = 8;
+		while (input == 8) {
+
 			input = scanner.nextInt();
 			switch (input) {
 			case 0:
@@ -261,10 +330,11 @@ public class Charakterbuild {
 				break;
 			default:
 				System.out.println("Bitte wähle einen gültigen Wert");
-				verf = false;
+				dexPunkte(points);
+				input = 8;
 
 			}
-		} while (verf == false);
+		}
 
 		points = points - input;
 		return points;
@@ -272,9 +342,9 @@ public class Charakterbuild {
 	}
 
 	public int chaPunkte(int points) {
-		int input;
-		boolean verf = true;
-		do {
+		int input = 8;
+		while (input == 8) {
+
 			input = scanner.nextInt();
 			switch (input) {
 			case 0:
@@ -303,10 +373,11 @@ public class Charakterbuild {
 				break;
 			default:
 				System.out.println("Bitte wähle einen gültigen Wert");
-				verf = false;
+				chaPunkte(points);
+				input = 8;
 
 			}
-		} while (verf == false);
+		}
 
 		points = points - input;
 		return points;
@@ -314,9 +385,8 @@ public class Charakterbuild {
 	}
 
 	public int wisPunkte(int points) {
-		int input;
-		boolean verf = true;
-		do {
+		int input = 8;
+		while (input == 8) {
 			input = scanner.nextInt();
 			switch (input) {
 			case 0:
@@ -345,10 +415,11 @@ public class Charakterbuild {
 				break;
 			default:
 				System.out.println("Bitte wähle einen gültigen Wert");
-				verf = false;
+				wisPunkte(points);
+				input = 8;
 
 			}
-		} while (verf == false);
+		}
 
 		points = points - input;
 		return points;
@@ -356,9 +427,8 @@ public class Charakterbuild {
 	}
 
 	public int intPunkte(int points) {
-		int input;
-		boolean verf = true;
-		do {
+		int input = 8;
+		while (input == 8) {
 			input = scanner.nextInt();
 			switch (input) {
 			case 0:
@@ -387,66 +457,14 @@ public class Charakterbuild {
 				break;
 			default:
 				System.out.println("Bitte wähle einen gültigen Wert");
-				verf = false;
+				intPunkte(points);
+				input = 8;
 
 			}
-		} while (verf == false);
+		}
 
 		points = points - input;
 		return points;
-
-	}
-
-	public void punkteverteilen() {
-		int point;
-		do {
-			point = 27;
-			boolean verf = true;
-			int input;
-			System.out.println("Du hast nun " + point + " Kostenpunkte die du ausgeben kannst");
-			System.out.printf("Fähigkiten Preise\n" + " 8 Skill Points kosten 0 (MODIFIKATOR = -1)\n"
-					+ " 9 Skill Points kosten 1 (MODIFIKATOR = -1)\n" + "10 Skill Points kosten 2 (MODIFIKATOR = +0)\n"
-					+ "11 Skill Points kosten 3 (MODIFIKATOR = +0)\n" + "12 Skill Points kosten 4 (MODIFIKATOR = +1)\n"
-					+ "13 Skill Points kosten 5 (MODIFIKATOR = +1)\n" + "14 Skill Points kosten 7 (MODIFIKATOR = +2)\n"
-					+ "15 Skill Points kosten 9 (MODIFIKATOR = +2)\n"
-					+ "*****BEDENKE DASS DU DURCH RASSE UND KLASSE EBENFALLS SKILLPUNKTE BEKOMMST*****\n");
-			// TODO DIE PUNKTE RÜBER IN DIE CHRAKLASSE RÜBER SCHREIBEN UND MODI BERECHNEN
-			verf = true;
-
-			System.out.println("Bitte gib die Kosten für die Stärke an die du ausgeben möchtest");
-
-			point = strPunkte(point);
-			System.out.println("Du hast noch " + point + " übrig");
-			System.out.println("--------------------------------------------------------------------------");
-			System.out.println("Bitte gib die Kosten für die Konstitution an die du ausgeben möchtest");
-
-			point = conPunkte(point);
-			System.out.println("Du hast noch " + point + " übrig");
-			System.out.println("--------------------------------------------------------------------------");
-			System.out.println("Bitte gib die Kosten für die Geschicklichkeit an die du ausgeben möchtest");
-
-			point = dexPunkte(point);
-			System.out.println("Du hast noch " + point + " übrig");
-			System.out.println("--------------------------------------------------------------------------");
-			System.out.println("Bitte gib die Kosten für das Charisma an die du ausgeben möchtest");
-
-			point = chaPunkte(point);
-			System.out.println("Du hast noch " + point + " übrig");
-			System.out.println("--------------------------------------------------------------------------");
-			System.out.println("Bitte gib die Kosten für die Weisheit an die du ausgeben möchtest");
-
-			point = wisPunkte(point);
-			System.out.println("Du hast noch " + point + " übrig");
-			System.out.println("--------------------------------------------------------------------------");
-			System.out.println("Bitte gib die Kosten für die Inteligenz an die du ausgeben möchtest");
-
-			point = intPunkte(point);
-
-			if (point != 0 || point < 0) {
-				System.out.println("Es folgt die Erneute Eingabe der Werte du muss am Ende auf O (Null) kommen");
-			}
-
-		} while (point != 0);
 
 	}
 
