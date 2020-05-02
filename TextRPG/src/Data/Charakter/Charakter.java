@@ -27,7 +27,7 @@ public class Charakter {
 	private int wisMod;
 	private int intMod;
 
-	Object[] stats = new Object[2];  // [1] = Klasse, [0] = Rasse
+	Object[] stats = new Object[2]; // [1] = Klasse, [0] = Rasse
 	ArrayList<Item> inv;
 
 	public Charakter(String name) {
@@ -47,17 +47,16 @@ public class Charakter {
 
 	public void showChar() {
 		calcSkill();
-		
-		
+
 		System.out.printf("Das bist du " + name + ":\n" + "Du hast " + ((Klasse) stats[1]).getMoney() + " Münzen\n");
 		System.out.println("Das sind deine Stats:");
-		System.out.printf("Stärke:\t\t\t " + getStr() + "\t\t Mod: "+ calcModSTR() + "\n"+
-							"Konstitution:\t\t " + getCon() + "\t\t Mod: "+ calcModKon() + "\n"+
-							"Geschicklichkeit:\t " + getDex() + "\t\t Mod: "+ calcModDEX() + "\n"+
-							"Charisma:\t\t " + getCha() + "\t\t Mod: "+ calcModCHA() + "\n"+
-							"Weisheit:\t\t " + getWis() + "\t\t Mod: "+ calcModWIS() + "\n"+
-							"Intelligenz:\t\t " + getIntel() + "\t\t Mod: "+ calcModINT() + "\n");
-		
+		System.out.printf("Stärke:\t\t\t " + calcSTR() + "\t\t Mod: " + calcModSTR() + "\n" 
+				+ "Konstitution:\t\t " + calcCON() + "\t\t Mod: " + calcModKon() + "\n"
+				+ "Geschicklichkeit:\t " + calcDEX() + "\t\t Mod: " + calcModDEX() + "\n"
+				+ "Charisma:\t\t " + calcCHA() + "\t\t Mod: " + calcModCHA() + "\n"
+				+ "Weisheit:\t\t " + calcWIS() + "\t\t Mod: " + calcModWIS() + "\n"
+				+ "Intelligenz:\t\t " + calcINT() + "\t\t Mod: " + calcModINT() + "\n");
+
 		System.out.printf("Dein Inventar:\n");
 		showInv();
 		System.out.println("--------------------------------------------------------------------------");
@@ -66,7 +65,7 @@ public class Charakter {
 
 	public void showInv() {
 		for (Item item : inv) {
-			System.out.println(item.getName() +"\n" + item.getDescription());
+			System.out.println(item.getName() + "\n" + item.getDescription());
 		}
 	}
 
@@ -92,7 +91,7 @@ public class Charakter {
 
 	}
 
-	public int  calcModDEX() {
+	public int calcModDEX() {
 		int sum;
 		sum = (int) ((Klasse) stats[1]).getDex() + (int) (((Rasse) stats[0]).getDex()) + getDex();
 
@@ -105,29 +104,28 @@ public class Charakter {
 		sum = (int) ((Klasse) stats[1]).getCha() + (int) (((Rasse) stats[0]).getCha()) + getCha();
 
 		return chaMod = zuweisung(sum);
-		//test
+		// test
 
 	}
 
-	public int  calcModWIS() {
+	public int calcModWIS() {
 		int sum;
 		sum = (int) ((Klasse) stats[1]).getWis() + (int) (((Rasse) stats[0]).getWis()) + getWis();
 
-		return wisMod = zuweisung (sum);
+		return wisMod = zuweisung(sum);
 
 	}
 
-	public int  calcModINT() {
+	public int calcModINT() {
 		int sum;
 		sum = (int) ((Klasse) stats[1]).getIntel() + (int) (((Rasse) stats[0]).getIntel()) + getIntel();
 
 		return intMod = zuweisung(sum);
 
 	}
-	
-	
+
 	public int zuweisung(int sum) {
-		int mod =0;
+		int mod = 0;
 		if (sum == 8 || sum == 9) {
 			mod = -1;
 		} else if (sum == 10 || sum == 11) {
@@ -154,19 +152,18 @@ public class Charakter {
 			mod = 10;
 
 		}
-		
+
 		return mod;
 	}
-	
+
 	/*
 	 * 
 	 * BERECHNUNG DER SKILLPUNKTE
 	 * 
 	 * 
 	 */
-	
-	
-	public void calcSkill(){
+
+	public void calcSkill() {
 		calcSTR();
 		calcCON();
 		calcDEX();
@@ -174,56 +171,57 @@ public class Charakter {
 		calcWIS();
 		calcINT();
 	}
-	
-	public void calcSTR() {
+
+	public int calcSTR() {
 		int sum;
+		setStr(getStr());
 		sum = (int) ((Klasse) stats[1]).getStr() + (int) (((Rasse) stats[0]).getStr()) + getStr();
-		setStr(sum);
-
 		
+		return sum;
+
 	}
 
-	public void calcCON() {
+	public int calcCON() {
 		int sum;
+		setCon(getCon());
 		sum = (int) ((Klasse) stats[1]).getCon() + (int) (((Rasse) stats[0]).getCon()) + getCon();
-		setCon(sum);
-
 		
-
+		return sum;
 	}
 
-	public void calcDEX() {
+	public int calcDEX() {
 		int sum;
+		setDex(getDex());
 		sum = (int) ((Klasse) stats[1]).getDex() + (int) (((Rasse) stats[0]).getDex()) + getDex();
-		setDex(sum);
-
+		
+		return sum;
 
 	}
 
-	public void calcCHA() {
+	public int calcCHA() {
 		int sum;
+		setCha(getCha());
 		sum = (int) ((Klasse) stats[1]).getCha() + (int) (((Rasse) stats[0]).getCha()) + getCha();
-		setCha(sum);
-
 		
+		return sum;
 
 	}
 
-	public void calcWIS() {
+	public int calcWIS() {
 		int sum;
+		setWis(getWis());
 		sum = (int) ((Klasse) stats[1]).getWis() + (int) (((Rasse) stats[0]).getWis()) + getWis();
-		setWis(sum);
-
 		
+		return sum;
 
 	}
 
-	public void  calcINT() {
+	public int calcINT() {
 		int sum;
+		setIntel(getIntel());
 		sum = (int) ((Klasse) stats[1]).getIntel() + (int) (((Rasse) stats[0]).getIntel()) + getIntel();
-		setIntel(sum);
 
-		
+		return sum;
 	}
 
 	/*
