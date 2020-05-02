@@ -160,67 +160,45 @@ public class Charakterbuild {
 			point = strPunkte(point);
 			System.out.println("Du hast noch " + point + " übrig");
 			System.out.println("--------------------------------------------------------------------------");
-			abfragePunkteverteilen(point);
 			System.out.println("Bitte gib die Kosten für die Konstitution an die du ausgeben möchtest");
 			
 
 			point = conPunkte(point);
 			System.out.println("Du hast noch " + point + " übrig");
 			System.out.println("--------------------------------------------------------------------------");
-			abfragePunkteverteilen(point);
 			System.out.println("Bitte gib die Kosten für die Geschicklichkeit an die du ausgeben möchtest");
 			
 
 			point = dexPunkte(point);
 			System.out.println("Du hast noch " + point + " übrig");
 			System.out.println("--------------------------------------------------------------------------");
-			abfragePunkteverteilen(point);
 			System.out.println("Bitte gib die Kosten für das Charisma an die du ausgeben möchtest");
 			
 
 			point = chaPunkte(point);
 			System.out.println("Du hast noch " + point + " übrig");
 			System.out.println("--------------------------------------------------------------------------");
-			abfragePunkteverteilen(point);
 			System.out.println("Bitte gib die Kosten für die Weisheit an die du ausgeben möchtest");
 		
 
 			point = wisPunkte(point);
 			System.out.println("Du hast noch " + point + " übrig");
 			System.out.println("--------------------------------------------------------------------------");
-			abfragePunkteverteilen(point);
 			System.out.println("Bitte gib die Kosten für die Inteligenz an die du ausgeben möchtest");
 			
 
 			point = intPunkte(point);
 			System.out.println("Du hast noch " + point + " übrig");
 			System.out.println("--------------------------------------------------------------------------");
-			abfragePunkteverteilen(point);
 
-			if (point != 0) {
+			if (point != 0 || point <0) {
 				System.out.println("Es folgt die erneute Eingabe der Werte, du musst am Ende auf 0 kommen!");
 				punkteverteilen();
-			}
-
-		}
-
-	}
-
-	public void abfragePunkteverteilen(int point) {
-		if (point == 0) {
-			System.out.println("Alle Skill Punkte verteilt! \n");
 			charakter.showChar();
-			charakter.calcModSTR();
-			System.exit(0); 
-			/*
-			 * ToDo anderes als System.Exit
-			 */
-		} else if (point < 0) {
-			System.out.println("Es folgt die erneute Eingabe der Werte, du musst am Ende auf 0 kommen!");
-			punkteverteilen();
-		} else {
+			}
 		}
 	}
+
 
 	public int strPunkte(int points) {
 		int input = 8;
