@@ -27,7 +27,7 @@ public class Charakter {
 	private int wisMod;
 	private int intMod;
 
-	Object[] stats = new Object[2];
+	Object[] stats = new Object[2];  // [1] = Klasse, [0] = Rasse
 	ArrayList<Item> inv;
 
 	public Charakter(String name) {
@@ -48,14 +48,14 @@ public class Charakter {
 	public void showChar() {
 		System.out.printf("Das bist du " + name + ":\n" + "Du hast " + ((Klasse) stats[1]).getMoney() + " Münzen\n");
 		System.out.println("Das sind deine Stats:");
-		System.out.printf("Stärke:\t\t\t " + getStr() + "\t\t Mod: "+ getStrMod() + "\n"+
-							"Konstitution:\t\t " + getCon() + "\t\t Mod: "+ getConMod() + "\n"+
-							"Geschicklichkeit:\t " + getDex() + "\t\t Mod: "+ getDexMod() + "\n"+
-							"Charisma:\t\t " + getCha() + "\t\t Mod: "+ getChaMod() + "\n"+
-							"Weisheit:\t\t " + getWis() + "\t\t Mod: "+ getWisMod() + "\n"+
-							"Intelligenz:\t\t " + getIntel() + "\t\t Mod: "+ getIntMod() + "\n");
+		System.out.printf("Stärke:\t\t\t " + getStr() + "\t\t Mod: "+ calcModSTR() + "\n"+
+							"Konstitution:\t\t " + getCon() + "\t\t Mod: "+ calcModKon() + "\n"+
+							"Geschicklichkeit:\t " + getDex() + "\t\t Mod: "+ calcModDEX() + "\n"+
+							"Charisma:\t\t " + getCha() + "\t\t Mod: "+ calcModCHA() + "\n"+
+							"Weisheit:\t\t " + getWis() + "\t\t Mod: "+ calcModWIS() + "\n"+
+							"Intelligenz:\t\t " + getIntel() + "\t\t Mod: "+ calcModINT() + "\n");
 		
-		System.out.printf("und das ist dein Inventar:\n");
+		System.out.printf("Dein Inventar:\n");
 		showInv();
 		System.out.println("--------------------------------------------------------------------------");
 
@@ -74,50 +74,50 @@ public class Charakter {
 	 * 
 	 */
 
-	public void calcModSTR() {
+	public int calcModSTR() {
 		int sum;
 		sum = (int) ((Klasse) stats[1]).getStr() + (int) (((Rasse) stats[0]).getStr()) + getStr();
 
-		strMod = zuweisung(sum);
+		return strMod = zuweisung(sum);
 	}
 
-	public void calcModKon() {
+	public int calcModKon() {
 		int sum;
 		sum = (int) ((Klasse) stats[1]).getCon() + (int) (((Rasse) stats[0]).getCon()) + getCon();
 
-		conMod = zuweisung(sum);
+		return conMod = zuweisung(sum);
 
 	}
 
-	public void calcModDEX() {
+	public int  calcModDEX() {
 		int sum;
 		sum = (int) ((Klasse) stats[1]).getDex() + (int) (((Rasse) stats[0]).getDex()) + getDex();
 
-		dexMod = zuweisung(sum);
+		return dexMod = zuweisung(sum);
 
 	}
 
-	public void calcModCHA() {
+	public int calcModCHA() {
 		int sum;
 		sum = (int) ((Klasse) stats[1]).getCha() + (int) (((Rasse) stats[0]).getCha()) + getCha();
 
-		chaMod = zuweisung(sum);
+		return chaMod = zuweisung(sum);
 
 	}
 
-	public void calcModWIS() {
+	public int  calcModWIS() {
 		int sum;
 		sum = (int) ((Klasse) stats[1]).getWis() + (int) (((Rasse) stats[0]).getWis()) + getWis();
 
-		wisMod = zuweisung (sum);
+		return wisMod = zuweisung (sum);
 
 	}
 
-	public void calcModINT() {
+	public int  calcModINT() {
 		int sum;
 		sum = (int) ((Klasse) stats[1]).getIntel() + (int) (((Rasse) stats[0]).getIntel()) + getIntel();
 
-		intMod = zuweisung(sum);
+		return intMod = zuweisung(sum);
 
 	}
 	

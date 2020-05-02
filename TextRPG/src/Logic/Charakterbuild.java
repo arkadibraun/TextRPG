@@ -210,7 +210,11 @@ public class Charakterbuild {
 		if (point == 0) {
 			System.out.println("Alle Skill Punkte verteilt! \n");
 			charakter.showChar();
-			System.exit(0);
+			charakter.calcModSTR();
+			System.exit(0); 
+			/*
+			 * ToDo anderes als System.Exit
+			 */
 		} else if (point < 0) {
 			System.out.println("Es folgt die erneute Eingabe der Werte, du musst am Ende auf 0 kommen!");
 			punkteverteilen();
