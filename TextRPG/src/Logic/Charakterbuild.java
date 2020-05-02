@@ -137,7 +137,6 @@ public class Charakterbuild {
 				System.out.println("Bitte wähle einen gültigen Wert");
 				pickAClass();
 				eingabe = 1;
-//				punkteverteilen();
 			}
 		}
 	}
