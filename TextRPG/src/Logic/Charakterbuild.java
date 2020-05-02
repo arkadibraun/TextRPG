@@ -209,7 +209,6 @@ public class Charakterbuild {
 			System.out.println("Es folgt die erneute Eingabe der Werte, du musst am Ende auf 0 kommen!");
 			punkteverteilen();
 		} else {
-			System.out.println("f");
 		}
 	}
 
