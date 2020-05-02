@@ -19,7 +19,9 @@ public class Charakterbuild {
 		charakter = new Charakter(name);
 		System.out.println("Wilkommen " + name + " in der Welt von Ravnica. Nimm dich vor Gefahren in Acht");
 		pickARace();
+		System.out.println("--------------------------------------------------------------------------");
 		pickAClass();
+		System.out.println("--------------------------------------------------------------------------");
 		punkteverteilen();//
 		charakter.showChar();
 		// to-do char info
@@ -408,7 +410,7 @@ public class Charakterbuild {
 					+ "11 Skill Points kosten 3 (MODIFIKATOR = +0)\n" + "12 Skill Points kosten 4 (MODIFIKATOR = +1)\n"
 					+ "13 Skill Points kosten 5 (MODIFIKATOR = +1)\n" + "14 Skill Points kosten 7 (MODIFIKATOR = +2)\n"
 					+ "15 Skill Points kosten 9 (MODIFIKATOR = +2)\n"
-					+ "*****BEDENKE DASS DU DURCH RASSE UND KLASSE EBENFALLS SKILLPUNKTE BEKOMMST*****");
+					+ "*****BEDENKE DASS DU DURCH RASSE UND KLASSE EBENFALLS SKILLPUNKTE BEKOMMST*****\n");
 			// TODO DIE PUNKTE RÜBER IN DIE CHRAKLASSE RÜBER SCHREIBEN UND MODI BERECHNEN
 			verf = true;
 
@@ -441,8 +443,8 @@ public class Charakterbuild {
 
 			point = intPunkte(point);
 
-			if (point != 0) {
-				System.out.println("Es soflgt die Erneute Eingabe der Werte du muss am Ende auf O (Null) kommen");
+			if (point != 0 || point < 0) {
+				System.out.println("Es folgt die Erneute Eingabe der Werte du muss am Ende auf O (Null) kommen");
 			}
 
 		} while (point != 0);
