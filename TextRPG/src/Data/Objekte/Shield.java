@@ -8,4 +8,14 @@ public class Shield extends Weapons {
 		super(name, description);
 		this.armor = armor;
 	}
+
+	public int getArmor() {
+		return armor;
+	}
+
+	public void setArmor(int armor) {
+		this.armor = armor;
+	}
+	
+	
 }

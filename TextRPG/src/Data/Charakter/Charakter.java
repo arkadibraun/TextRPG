@@ -5,6 +5,8 @@ import java.util.Iterator;
 
 import Data.Klassen.Klasse;
 import Data.Objekte.Item;
+import Data.Objekte.Shield;
+import Data.Objekte.Weapons;
 import Data.Rasse.Rasse;
 
 public class Charakter {
@@ -27,6 +29,7 @@ public class Charakter {
 	private int wisMod;
 	private int intMod;
 
+	Weapons[] handequip = new Weapons[2];
 	Object[] stats = new Object[2];
 	ArrayList<Item> inv;
 
@@ -48,13 +51,14 @@ public class Charakter {
 	public void showChar() {
 		System.out.printf("Das bist du " + name + ":\n" + "Du hast " + ((Klasse) stats[1]).getMoney() + " Münzen\n");
 		System.out.println("Das sind deine Stats:");
-		System.out.printf("Stärke:\t\t\t " + getStr() + "\t\t Mod: "+ getStrMod() + "\n"+
-							"Konstitution:\t\t " + getStr() + "\t\t Mod: "+ getStrMod() + "\n"+
-							"Geschicklichkeit:\t " + getStr() + "\t\t Mod: "+ getStrMod() + "\n"+
-							"Charisma:\t\t " + getStr() + "\t\t Mod: "+ getStrMod() + "\n"+
-							"Weisheit:\t\t " + getStr() + "\t\t Mod: "+ getStrMod() + "\n"+
-							"Intelligenz:\t\t " + getStr() + "\t\t Mod: "+ getStrMod() + "\n");
-		
+		System.out.printf("Stärke:\t\t\t " + getStr() + "\t\t Mod: " + getStrMod() + "\n" + "Konstitution:\t\t "
+				+ getStr() + "\t\t Mod: " + getStrMod() + "\n" + "Geschicklichkeit:\t " + getStr() + "\t\t Mod: "
+				+ getStrMod() + "\n" + "Charisma:\t\t " + getStr() + "\t\t Mod: " + getStrMod() + "\n"
+				+ "Weisheit:\t\t " + getStr() + "\t\t Mod: " + getStrMod() + "\n" + "Intelligenz:\t\t " + getStr()
+				+ "\t\t Mod: " + getStrMod() + "\n");
+
+		System.out.println("Deine Rüstung beträgt: " + getArmor());
+
 		System.out.printf("und das ist dein Inventar:\n");
 		showInv();
 		System.out.println("--------------------------------------------------------------------------");
@@ -63,13 +67,13 @@ public class Charakter {
 
 	public void showInv() {
 		for (Item item : inv) {
-			System.out.println(item.getName() +"\n" + item.getDescription());
+			System.out.println(item.getName() + "\n" + item.getDescription());
 		}
 	}
 
 	/*
 	 * 
-	 * BERECHNUNG DER MODIFIKATOREN
+	 * BERECHNUNG DER MODIFIKATOREN + ARMOR
 	 * 
 	 * 
 	 */
@@ -109,7 +113,7 @@ public class Charakter {
 		int sum;
 		sum = (int) ((Klasse) stats[1]).getWis() + (int) (((Rasse) stats[0]).getWis()) + getWis();
 
-		wisMod = zuweisung (sum);
+		wisMod = zuweisung(sum);
 
 	}
 
@@ -120,10 +124,9 @@ public class Charakter {
 		intMod = zuweisung(sum);
 
 	}
-	
-	
+
 	public int zuweisung(int sum) {
-		int mod =0;
+		int mod = 0;
 		if (sum == 8 || sum == 9) {
 			mod = -1;
 		} else if (sum == 10 || sum == 11) {
@@ -150,11 +153,50 @@ public class Charakter {
 			mod = 10;
 
 		}
-		
+
 		return mod;
 	}
-	
-	
+
+	public void calcArmor() {
+		int ac;
+		ac = (int) (((Klasse) stats[1]).getArmor()) + (int) ((((Shield) handequip[1]).getArmor()));
+		setArmor(ac);
+	}
+
+	/*
+	 * 
+	 * 
+	 * WAFFEN EQUIPEN UND WECHSELN
+	 * 
+	 * 
+	 * 
+	 */
+
+	public void equipWeapon(String input) {
+		
+		
+		assert(inv.size()>0);
+		for (int i =0 ; i< inv.size();i++) {
+			if (input.toLowerCase().equals(inv.get(i).getName())) {
+				handequip[0]=(Weapons) inv.get(i);
+				inv.remove(i);
+				return;
+			}
+		}
+		
+	}
+
+	public void equipShield() {
+
+	}
+
+	public void changeWeapons(Weapons w) {
+
+	}
+
+	public void changeShield(Shield s) {
+
+	}
 
 	/*
 	 * 
