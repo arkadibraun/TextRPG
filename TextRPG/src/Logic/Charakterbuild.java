@@ -160,32 +160,37 @@ public class Charakterbuild {
 			point = strPunkte(point);
 			System.out.println("Du hast noch " + point + " übrig");
 			System.out.println("--------------------------------------------------------------------------");
-			System.out.println("Bitte gib die Kosten für die Konstitution an die du ausgeben möchtest");
 			abfragePunkteverteilen(point);
+			System.out.println("Bitte gib die Kosten für die Konstitution an die du ausgeben möchtest");
+			
 
 			point = conPunkte(point);
 			System.out.println("Du hast noch " + point + " übrig");
 			System.out.println("--------------------------------------------------------------------------");
-			System.out.println("Bitte gib die Kosten für die Geschicklichkeit an die du ausgeben möchtest");
 			abfragePunkteverteilen(point);
+			System.out.println("Bitte gib die Kosten für die Geschicklichkeit an die du ausgeben möchtest");
+			
 
 			point = dexPunkte(point);
 			System.out.println("Du hast noch " + point + " übrig");
 			System.out.println("--------------------------------------------------------------------------");
-			System.out.println("Bitte gib die Kosten für das Charisma an die du ausgeben möchtest");
 			abfragePunkteverteilen(point);
+			System.out.println("Bitte gib die Kosten für das Charisma an die du ausgeben möchtest");
+			
 
 			point = chaPunkte(point);
 			System.out.println("Du hast noch " + point + " übrig");
 			System.out.println("--------------------------------------------------------------------------");
-			System.out.println("Bitte gib die Kosten für die Weisheit an die du ausgeben möchtest");
 			abfragePunkteverteilen(point);
+			System.out.println("Bitte gib die Kosten für die Weisheit an die du ausgeben möchtest");
+		
 
 			point = wisPunkte(point);
 			System.out.println("Du hast noch " + point + " übrig");
 			System.out.println("--------------------------------------------------------------------------");
-			System.out.println("Bitte gib die Kosten für die Inteligenz an die du ausgeben möchtest");
 			abfragePunkteverteilen(point);
+			System.out.println("Bitte gib die Kosten für die Inteligenz an die du ausgeben möchtest");
+			
 
 			point = intPunkte(point);
 			System.out.println("Du hast noch " + point + " übrig");
@@ -203,8 +208,9 @@ public class Charakterbuild {
 
 	public void abfragePunkteverteilen(int point) {
 		if (point == 0) {
-			point = 1;
+			System.out.println("Alle Skill Punkte verteilt! \n");
 			charakter.showChar();
+			System.exit(0);
 		} else if (point < 0) {
 			System.out.println("Es folgt die erneute Eingabe der Werte, du musst am Ende auf 0 kommen!");
 			punkteverteilen();
@@ -218,33 +224,33 @@ public class Charakterbuild {
 			input = scanner.nextInt();
 			switch (input) {
 			case 0:
-				charakter.setAtk(8);
+				charakter.setStr(8);
 				break;
 			case 1:
-				charakter.setAtk(9);
+				charakter.setStr(9);
 				break;
 			case 2:
-				charakter.setAtk(10);
+				charakter.setStr(10);
 				break;
 			case 3:
-				charakter.setAtk(11);
+				charakter.setStr(11);
 				break;
 			case 4:
-				charakter.setAtk(12);
+				charakter.setStr(12);
 				break;
 			case 5:
-				charakter.setAtk(13);
+				charakter.setStr(13);
 				break;
 			case 7:
-				charakter.setAtk(14);
+				charakter.setStr(14);
 				break;
 			case 9:
-				charakter.setAtk(15);
+				charakter.setStr(15);
 				break;
 			default:
 				System.out.println("Bitte wähle einen gültigen Wert");
 				strPunkte(points);
-				input = 8;
+				input = 6;
 
 			}
 		}
@@ -287,7 +293,7 @@ public class Charakterbuild {
 			default:
 				System.out.println("Bitte wähle einen gültigen Wert");
 				conPunkte(points);
-				input = 8;
+				input = 6;
 
 			}
 		}
@@ -330,7 +336,7 @@ public class Charakterbuild {
 			default:
 				System.out.println("Bitte wähle einen gültigen Wert");
 				dexPunkte(points);
-				input = 8;
+				input = 6;
 
 			}
 		}
@@ -373,7 +379,7 @@ public class Charakterbuild {
 			default:
 				System.out.println("Bitte wähle einen gültigen Wert");
 				chaPunkte(points);
-				input = 8;
+				input = 6;
 
 			}
 		}
@@ -415,7 +421,7 @@ public class Charakterbuild {
 			default:
 				System.out.println("Bitte wähle einen gültigen Wert");
 				wisPunkte(points);
-				input = 8;
+				input = 6;
 
 			}
 		}
@@ -457,7 +463,7 @@ public class Charakterbuild {
 			default:
 				System.out.println("Bitte wähle einen gültigen Wert");
 				intPunkte(points);
-				input = 8;
+				input = 6;
 
 			}
 		}

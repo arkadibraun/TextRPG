@@ -49,11 +49,11 @@ public class Charakter {
 		System.out.printf("Das bist du " + name + ":\n" + "Du hast " + ((Klasse) stats[1]).getMoney() + " Münzen\n");
 		System.out.println("Das sind deine Stats:");
 		System.out.printf("Stärke:\t\t\t " + getStr() + "\t\t Mod: "+ getStrMod() + "\n"+
-							"Konstitution:\t\t " + getStr() + "\t\t Mod: "+ getStrMod() + "\n"+
-							"Geschicklichkeit:\t " + getStr() + "\t\t Mod: "+ getStrMod() + "\n"+
-							"Charisma:\t\t " + getStr() + "\t\t Mod: "+ getStrMod() + "\n"+
-							"Weisheit:\t\t " + getStr() + "\t\t Mod: "+ getStrMod() + "\n"+
-							"Intelligenz:\t\t " + getStr() + "\t\t Mod: "+ getStrMod() + "\n");
+							"Konstitution:\t\t " + getCon() + "\t\t Mod: "+ getConMod() + "\n"+
+							"Geschicklichkeit:\t " + getDex() + "\t\t Mod: "+ getDexMod() + "\n"+
+							"Charisma:\t\t " + getCha() + "\t\t Mod: "+ getChaMod() + "\n"+
+							"Weisheit:\t\t " + getWis() + "\t\t Mod: "+ getWisMod() + "\n"+
+							"Intelligenz:\t\t " + getIntel() + "\t\t Mod: "+ getIntMod() + "\n");
 		
 		System.out.printf("und das ist dein Inventar:\n");
 		showInv();
