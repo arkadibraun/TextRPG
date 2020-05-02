@@ -195,7 +195,10 @@ public class Charakterbuild {
 			if (point != 0 || point <0) {
 				System.out.println("Es folgt die erneute Eingabe der Werte, du musst am Ende auf 0 kommen!");
 				punkteverteilen();
+<<<<<<< HEAD
 			
+=======
+>>>>>>> branch 'master' of https://github.com/arkadibraun/TextRPG
 			}
 		}
 	}
