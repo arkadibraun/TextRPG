@@ -105,6 +105,7 @@ public class Charakter {
 		sum = (int) ((Klasse) stats[1]).getCha() + (int) (((Rasse) stats[0]).getCha()) + getCha();
 
 		return chaMod = zuweisung(sum);
+		//test
 
 	}
 
