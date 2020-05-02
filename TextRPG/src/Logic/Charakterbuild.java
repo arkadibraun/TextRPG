@@ -13,7 +13,6 @@ public class Charakterbuild {
 	Scanner scanner = new Scanner(System.in);
 
 	public void create() {
-
 		System.out.println("Bitte nenne mir deinen Namen:");
 		String name = scanner.next();
 		charakter = new Charakter(name);

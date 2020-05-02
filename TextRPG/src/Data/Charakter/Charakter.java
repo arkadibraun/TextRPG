@@ -48,12 +48,12 @@ public class Charakter {
 	public void showChar() {
 		System.out.printf("Das bist du " + name + ":\n" + "Du hast " + ((Klasse) stats[1]).getMoney() + " Münzen\n");
 		System.out.println("Das sind deine Stats:");
-		System.out.printf("Stärke:\t\t " + getStr() + "\t\t Mod: "+ getStrMod() + "\n"+
-							"Konstitution:\t " + getStr() + "\t\t Mod: "+ getStrMod() + "\n"+
-							"Geschicklichkeit:" + getStr() + "\t\t Mod: "+ getStrMod() + "\n"+
-							"Charisma:\t " + getStr() + "\t\t Mod: "+ getStrMod() + "\n"+
-							"Weisheit:\t " + getStr() + "\t\t Mod: "+ getStrMod() + "\n"+
-							"Intelligenz:\t " + getStr() + "\t\t Mod: "+ getStrMod() + "\n");
+		System.out.printf("Stärke:\t\t\t " + getStr() + "\t\t Mod: "+ getStrMod() + "\n"+
+							"Konstitution:\t\t " + getStr() + "\t\t Mod: "+ getStrMod() + "\n"+
+							"Geschicklichkeit:\t " + getStr() + "\t\t Mod: "+ getStrMod() + "\n"+
+							"Charisma:\t\t " + getStr() + "\t\t Mod: "+ getStrMod() + "\n"+
+							"Weisheit:\t\t " + getStr() + "\t\t Mod: "+ getStrMod() + "\n"+
+							"Intelligenz:\t\t " + getStr() + "\t\t Mod: "+ getStrMod() + "\n");
 		
 		System.out.printf("und das ist dein Inventar:\n");
 		showInv();
@@ -63,7 +63,7 @@ public class Charakter {
 
 	public void showInv() {
 		for (Item item : inv) {
-			System.out.println(item.getName() + "\n" + item.getDescription());
+			System.out.println(item.getName() +"\n" + item.getDescription());
 		}
 	}
 
