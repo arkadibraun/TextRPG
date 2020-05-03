@@ -7,11 +7,11 @@ import Data.Klassen.Klasse;
 import Data.Objekte.Item;
 import Data.Objekte.Weapons;
 import Data.Rasse.Rasse;
+import Logic.Exp;
 
 public class Charakter {
 
 	private String name;
-	int exp;// DnD seite als pdf 12 bzw 15 im buch
 
 	private int str;
 	private int con;
@@ -27,8 +27,8 @@ public class Charakter {
 	private int chaMod;
 	private int wisMod;
 	private int intMod;
+	private Exp exp;
 
-	
 	ArrayList<Item> inv;
 	Weapons[] hand = new Weapons[2]; // [1] = Schild, [0] = Waffe
 
@@ -37,7 +37,6 @@ public class Charakter {
 
 	public Charakter(String name) {
 		this.name = name;
-		this.exp = 0;
 		inv = new ArrayList<Item>();
 	}
 
@@ -55,12 +54,11 @@ public class Charakter {
 
 		System.out.printf("Das bist du " + name + ":\n" + "Du hast " + klassse.getMoney() + " Münzen\n");
 		System.out.println("Das sind deine Stats:");
-		System.out.printf("Lebenspunkte:\t\t" + klassse.getHealth() + "/"+klassse.getMaxHealth() + "\n" 
-				+ "Stärke:\t\t\t " + calcSTR() + "\t\t Mod: " + calcModSTR()
-				+ "\n" + "Konstitution:\t\t " + calcCON() + "\t\t Mod: " + calcModKon() + "\n" + "Geschicklichkeit:\t "
-				+ calcDEX() + "\t\t Mod: " + calcModDEX() + "\n" + "Charisma:\t\t " + calcCHA() + "\t\t Mod: "
-				+ calcModCHA() + "\n" + "Weisheit:\t\t " + calcWIS() + "\t\t Mod: " + calcModWIS() + "\n"
-				+ "Intelligenz:\t\t " + calcINT() + "\t\t Mod: " + calcModINT() + "\n");
+		System.out.printf("Lebenspunkte:\t\t" + life() + "/"+ maxLife() + "\n" + "Stärke:\t\t\t " + calcSTR()
+				+ "\t\t Mod: " + calcModSTR() + "\n" + "Konstitution:\t\t " + calcCON() + "\t\t Mod: " + calcModKon()
+				+ "\n" + "Geschicklichkeit:\t " + calcDEX() + "\t\t Mod: " + calcModDEX() + "\n" + "Charisma:\t\t "
+				+ calcCHA() + "\t\t Mod: " + calcModCHA() + "\n" + "Weisheit:\t\t " + calcWIS() + "\t\t Mod: "
+				+ calcModWIS() + "\n" + "Intelligenz:\t\t " + calcINT() + "\t\t Mod: " + calcModINT() + "\n");
 
 		System.out.printf("Dein Inventar:\n");
 		showInv();
@@ -100,6 +98,23 @@ public class Charakter {
 
 	}
 
+	/*
+	 * 
+	 * 
+	 * BERECHNUNG DES LEBENS UND DES MAXLEBEN
+	 * 
+	 * 
+	 */
+	public int life() {
+
+		return klassse.getHealth() + getConMod();
+
+	}
+
+	public int maxLife() {
+
+		return klassse.getHealth() + getConMod() + (exp.getLevel() * 7);
+	}
 	/*
 	 * 
 	 * BERECHNUNG DER MODIFIKATOREN
@@ -213,7 +228,7 @@ public class Charakter {
 	public int calcCON() {
 		int sum;
 		setCon(getCon());
-		sum = klassse.getCon() +rassse.getCon() + getCon();
+		sum = klassse.getCon() + rassse.getCon() + getCon();
 
 		return sum;
 	}
@@ -258,12 +273,12 @@ public class Charakter {
 	 * 
 	 */
 	public void takeRace(Rasse rasse) {
-		
+
 		this.rassse = rasse;
 	}
 
 	public void takeClass(Klasse klasse) {
-		
+
 		this.klassse = klasse;
 	}
 
@@ -277,14 +292,6 @@ public class Charakter {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public int getExp() {
-		return exp;
-	}
-
-	public void setExp(int exp) {
-		this.exp = exp;
 	}
 
 	public int getStr() {
