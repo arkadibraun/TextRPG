@@ -53,24 +53,27 @@ public class Charakter {
 	public void showChar() {
 		calcSkill();
 
-		System.out.printf("Das bist du " + name + ":\n" + "Du hast " + klassse.getMoney() + " Münzen\n");
+		System.out.printf("Das bist du " + name + ":\n" + "Du hast " + klassse.getMoney() + " Münzen\n\n");
 		System.out.println("Das sind deine Stats:");
-		System.out.printf("Lebenspunkte:\t\t" + life() + "/"+ maxLife() + "\n" + "Stärke:\t\t\t " + calcSTR()
+		System.out.println("Du bist Level: "+ exp.getLevel()+"\n");
+		System.out.println("Du brauchst noch : "+ exp.getExperienceToNextLevel()+" EXP bis zum nächsten Level\n");
+		System.out.printf("Lebenspunkte:\t\t" + life() + "/"+ maxLife() + "\n\n" + "Stärke:\t\t\t " + calcSTR()
 		+ "\t\t Mod: " + calcModSTR() + "\n" + "Konstitution:\t\t " + calcCON() + "\t\t Mod: " + calcModKon()
 		+ "\n" + "Geschicklichkeit:\t " + calcDEX() + "\t\t Mod: " + calcModDEX() + "\n" + "Charisma:\t\t "
 		+ calcCHA() + "\t\t Mod: " + calcModCHA() + "\n" + "Weisheit:\t\t " + calcWIS() + "\t\t Mod: "
-		+ calcModWIS() + "\n" + "Intelligenz:\t\t " + calcINT() + "\t\t Mod: " + calcModINT() + "\n");
+		+ calcModWIS() + "\n" + "Intelligenz:\t\t " + calcINT() + "\t\t Mod: " + calcModINT() + "\n\n");
 
 		System.out.printf("Dein Inventar:\n");
 		showInv();
-		System.out.println("--------------------------------------------------------------------------");
+		
 
 	}
 
 	public void showInv() {
 		for (Item item : inv) {
-			System.out.println(item.getName() + "\n" + item.getDescription());
+			System.out.println(item.getName() + "\n" + item.getDescription()+"\n");
 		}
+		System.out.println("--------------------------------------------------------------------------");
 	}
 
 	/*
@@ -82,21 +85,45 @@ public class Charakter {
 	public void equipWeapon(String name) {
 
 		for (int i = 0; i < inv.size(); i++) {
-			if (name.equals(inv.get(i).getName())) {
+			if (name.toLowerCase().equals(inv.get(i).getName().toLowerCase())) {
 				if (hand[0] == null) {
 
 					hand[0] = (Weapons) inv.get(i);
 					inv.remove(i);
+					System.out.println("Waffer erfolgreich angelegt");
 					return;
 				} else {
 					inv.add(hand[0]);
 					hand[0] = (Weapons) inv.get(i);
 					inv.remove(i);
+					System.out.println("Waffer erfolgreich angelegt");
 					return;
 				}
 			}
 		}
+		
+	}
+	
+	public void equipShield(String name) {
 
+		for (int i = 0; i < inv.size(); i++) {
+			if (name.toLowerCase().equals(inv.get(i).getName().toLowerCase())) {
+				if (hand[1] == null) {
+
+					hand[1] = (Weapons) inv.get(i);
+					inv.remove(i);
+					System.out.println("Schild erfolgreich angelegt");
+					return;
+				} else {
+					inv.add(hand[1]);
+					hand[1] = (Weapons) inv.get(i);
+					inv.remove(i);
+					System.out.println("Schild erfolgreich angelegt");
+					return;
+				}
+			}
+		}
+		
 	}
 
 	/*
@@ -275,7 +302,7 @@ public class Charakter {
 
     public int maxLife() {
 
-        return klassse.getHealth() + getConMod() + (exp.getLevel() * 7);
+        return klassse.getHealth() + getConMod() + ((exp.getLevel()-1) * 7);
     }
 	
 	/*

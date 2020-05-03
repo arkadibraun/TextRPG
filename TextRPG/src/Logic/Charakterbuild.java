@@ -11,7 +11,7 @@ public class Charakterbuild {
 
 	Scanner scanner = new Scanner(System.in);
 
-	public void create(Charakter charakter) {
+	public Charakter create(Charakter charakter) {
 		System.out.println("Bitte nenne mir deinen Namen:");
 		String name = scanner.next();
 		charakter = new Charakter(name);
@@ -22,6 +22,8 @@ public class Charakterbuild {
 		System.out.println("--------------------------------------------------------------------------");
 		punkteverteilen(charakter);
 		charakter.showChar();
+		
+		return charakter;
 	}
 
 	public void pickARace(Charakter charakter) {
