@@ -26,7 +26,7 @@ public class Klasse {
 		this.intel = intel;
 		
 	}
-
+//hbsdck
 	public int getMaxHealth() {
 		return maxHealth;
 	}
