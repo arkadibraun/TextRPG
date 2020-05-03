@@ -12,6 +12,7 @@ public class Klasse {
 	private int wis;
 	private int intel;
 	private int money;
+	private int maxHealth;
 
 	public Klasse(int armor, int health, int str, int con, int dex, int cha, int wis, int intel, int money) {
 		this.armor = armor;
@@ -23,6 +24,14 @@ public class Klasse {
 		this.wis = wis;
 		this.str = str;
 		this.intel = intel;
+	}
+
+	public int getMaxHealth() {
+		return maxHealth;
+	}
+
+	public void setMaxHealth(int maxHealth) {
+		this.maxHealth = maxHealth;
 	}
 
 	public int getArmor() {
@@ -97,6 +106,4 @@ public class Klasse {
 		this.money = money;
 	}
 
-	
-	
 }
