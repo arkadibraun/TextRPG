@@ -28,7 +28,7 @@ public class Charakter {
 	private int wisMod;
 	private int intMod;
 
-	Object[] stats = new Object[2]; // [1] = Klasse, [0] = Rasse
+	
 	ArrayList<Item> inv;
 	Weapons[] hand = new Weapons[2]; // [1] = Schild, [0] = Waffe
 
@@ -53,10 +53,10 @@ public class Charakter {
 	public void showChar() {
 		calcSkill();
 
-		System.out.printf("Das bist du " + name + ":\n" + "Du hast " + ((Klasse) stats[1]).getMoney() + " Münzen\n");
+		System.out.printf("Das bist du " + name + ":\n" + "Du hast " + klassse.getMoney() + " Münzen\n");
 		System.out.println("Das sind deine Stats:");
-		System.out.printf("Lebenspunkte:\t\t" + ((Klasse) stats[1]).getHealth() + "/"
-				+ ((Klasse) stats[1]).getMaxHealth() + "\n" + "Stärke:\t\t\t " + calcSTR() + "\t\t Mod: " + calcModSTR()
+		System.out.printf("Lebenspunkte:\t\t" + klassse.getHealth() + "/"+klassse.getMaxHealth() + "\n" 
+				+ "Stärke:\t\t\t " + calcSTR() + "\t\t Mod: " + calcModSTR()
 				+ "\n" + "Konstitution:\t\t " + calcCON() + "\t\t Mod: " + calcModKon() + "\n" + "Geschicklichkeit:\t "
 				+ calcDEX() + "\t\t Mod: " + calcModDEX() + "\n" + "Charisma:\t\t " + calcCHA() + "\t\t Mod: "
 				+ calcModCHA() + "\n" + "Weisheit:\t\t " + calcWIS() + "\t\t Mod: " + calcModWIS() + "\n"
@@ -258,12 +258,12 @@ public class Charakter {
 	 * 
 	 */
 	public void takeRace(Rasse rasse) {
-		stats[0] = rasse;
+		
 		this.rassse = rasse;
 	}
 
 	public void takeClass(Klasse klasse) {
-		stats[1] = klasse;
+		
 		this.klassse = klasse;
 	}
 
