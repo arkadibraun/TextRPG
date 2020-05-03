@@ -55,7 +55,7 @@ public class Charakter {
 
 		System.out.printf("Das bist du " + name + ":\n" + "Du hast " + klassse.getMoney() + " Münzen\n");
 		System.out.println("Das sind deine Stats:");
-		System.out.printf("Lebenspunkte:\t\t" + klassse.getHealth() + "/"+klassse.getMaxHealth() + "\n" 
+		System.out.printf("Lebenspunkte:\t\t" + klassse.getHealth() + "/"+ klassse.getMaxHealth() + "\n" 
 				+ "Stärke:\t\t\t " + calcSTR() + "\t\t Mod: " + calcModSTR()
 				+ "\n" + "Konstitution:\t\t " + calcCON() + "\t\t Mod: " + calcModKon() + "\n" + "Geschicklichkeit:\t "
 				+ calcDEX() + "\t\t Mod: " + calcModDEX() + "\n" + "Charisma:\t\t " + calcCHA() + "\t\t Mod: "

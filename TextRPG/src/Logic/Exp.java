@@ -27,7 +27,7 @@ public class Exp {
 		experienceToNextLevel = level*300;
 		
 		if(level > 2) {
-			experienceToNextLevel*= 2.5; 
+			experienceToNextLevel *= 2.5; 
 		}
 		
 		return experienceToNextLevel;
