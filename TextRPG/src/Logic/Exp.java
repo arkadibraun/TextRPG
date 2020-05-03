@@ -6,10 +6,10 @@ public class Exp {
 	
 	Enemy enemys;
 	private int experience;
-	private int level;
+	private int level = 1;
 	private int experienceToNextLevel;
 	public Exp() {
-		level = 1;
+//		level = 1;
 		experience = 0;
 		experienceToNextLevel = 100;
 	}
@@ -22,7 +22,11 @@ public class Exp {
 		}
 		return 0;
 	}
-	
+
+	public void setExperienceToNextLevel(int experienceToNextLevel) {
+		this.experienceToNextLevel = experienceToNextLevel;
+	}
+
 	public int maxExperienceCalc() {
 		experienceToNextLevel = level*300;
 		
@@ -41,7 +45,28 @@ public class Exp {
 		}
 		return;
 	}
+	
+	
+	
+	
+	/*
+	 * 
+	 * Getter und Setter
+	 * 
+	 */
+	public int getExperience() {
+		return experience;
+	}
 
+	public void setExperience(int experience) {
+		this.experience = experience;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
+	}
+
+	
 	public int getXp() {
 		return experience;
 	}

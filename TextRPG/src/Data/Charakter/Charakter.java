@@ -7,11 +7,12 @@ import Data.Klassen.Klasse;
 import Data.Objekte.Item;
 import Data.Objekte.Weapons;
 import Data.Rasse.Rasse;
+import Logic.Exp;
 
 public class Charakter {
 
 	private String name;
-	int exp;// DnD seite als pdf 12 bzw 15 im buch
+	private Exp exp = new Exp();
 
 	private int str;
 	private int con;
@@ -37,7 +38,6 @@ public class Charakter {
 
 	public Charakter(String name) {
 		this.name = name;
-		this.exp = 0;
 		inv = new ArrayList<Item>();
 	}
 
@@ -266,6 +266,18 @@ public class Charakter {
 		this.klassse = klasse;
 	}
 
+	
+	public int life() {
+
+        return klassse.getHealth() + getConMod();
+
+    }
+
+    public int maxLife() {
+
+        return klassse.getHealth() + getConMod() + (exp.getLevel() * 7);
+    }
+	
 	/*
 	 * HIER KOMMEN DIE GANZEN GETTER UND SETTERS HIN *HINSPUCK GERÄUSCH*
 	 */
@@ -276,14 +288,6 @@ public class Charakter {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public int getExp() {
-		return exp;
-	}
-
-	public void setExp(int exp) {
-		this.exp = exp;
 	}
 
 	public int getStr() {
