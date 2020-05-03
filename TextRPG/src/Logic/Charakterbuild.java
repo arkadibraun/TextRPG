@@ -9,23 +9,22 @@ import java.util.Scanner;
 
 public class Charakterbuild {
 
-	Charakter charakter;
 	Scanner scanner = new Scanner(System.in);
 
-	public void create() {
+	public void create(Charakter charakter) {
 		System.out.println("Bitte nenne mir deinen Namen:");
 		String name = scanner.next();
 		charakter = new Charakter(name);
 		System.out.println("Wilkommen " + name + " in der Welt von Ravnica. Nimm dich vor Gefahren in Acht");
-		pickARace();
+		pickARace(charakter);
 		System.out.println("--------------------------------------------------------------------------");
-		pickAClass();
+		pickAClass(charakter);
 		System.out.println("--------------------------------------------------------------------------");
-		punkteverteilen();
+		punkteverteilen(charakter);
 		charakter.showChar();
 	}
 
-	public void pickARace() {
+	public void pickARace(Charakter charakter) {
 		int eingabe = 0;
 		while (eingabe == 0) {
 			System.out.printf("Bitte wähle eine Rasse aus\n" + " 1)Zwerg \t\t (+2 STR, +1 KON, +1 CHA, +1WEI)\n"
@@ -60,13 +59,13 @@ public class Charakterbuild {
 				break;
 			default:
 				System.out.println("Bitte eine gültige Eingabe zwischen 1 und 6 machen");
-				pickARace();
+				pickARace(charakter);
 				eingabe = 1;
 			}
 		}
 	}
 
-	public void pickAClass() {
+	public void pickAClass(Charakter charakter) {
 		int eingabe = 0;
 		while (eingabe == 0) {
 			System.out.printf(
@@ -135,13 +134,13 @@ public class Charakterbuild {
 				break;
 			default:
 				System.out.println("Bitte wähle einen gültigen Wert");
-				pickAClass();
+				pickAClass(charakter);
 				eingabe = 1;
 			}
 		}
 	}
 
-	public void punkteverteilen() {
+	public void punkteverteilen(Charakter charakter) {
 		int point = 6;
 		while (point == 6) {
 			point = 27;
@@ -157,50 +156,44 @@ public class Charakterbuild {
 
 			System.out.println("Bitte gib die Kosten für die Stärke an die du ausgeben möchtest");
 
-			point = strPunkte(point);
+			point = strPunkte(point, charakter);
 			System.out.println("Du hast noch " + point + " übrig");
 			System.out.println("--------------------------------------------------------------------------");
 			System.out.println("Bitte gib die Kosten für die Konstitution an die du ausgeben möchtest");
-			
 
-			point = conPunkte(point);
+			point = conPunkte(point, charakter);
 			System.out.println("Du hast noch " + point + " übrig");
 			System.out.println("--------------------------------------------------------------------------");
 			System.out.println("Bitte gib die Kosten für die Geschicklichkeit an die du ausgeben möchtest");
-			
 
-			point = dexPunkte(point);
+			point = dexPunkte(point, charakter);
 			System.out.println("Du hast noch " + point + " übrig");
 			System.out.println("--------------------------------------------------------------------------");
 			System.out.println("Bitte gib die Kosten für das Charisma an die du ausgeben möchtest");
-			
 
-			point = chaPunkte(point);
+			point = chaPunkte(point, charakter);
 			System.out.println("Du hast noch " + point + " übrig");
 			System.out.println("--------------------------------------------------------------------------");
 			System.out.println("Bitte gib die Kosten für die Weisheit an die du ausgeben möchtest");
-		
 
-			point = wisPunkte(point);
+			point = wisPunkte(point, charakter);
 			System.out.println("Du hast noch " + point + " übrig");
 			System.out.println("--------------------------------------------------------------------------");
 			System.out.println("Bitte gib die Kosten für die Inteligenz an die du ausgeben möchtest");
-			
 
-			point = intPunkte(point);
+			point = intPunkte(point, charakter);
 			System.out.println("Du hast noch " + point + " übrig");
 			System.out.println("--------------------------------------------------------------------------");
 
-			if (point != 0 || point <0) {
+			if (point != 0 || point < 0) {
 				System.out.println("Es folgt die erneute Eingabe der Werte, du musst am Ende auf 0 kommen!");
-				punkteverteilen();
+				punkteverteilen(charakter);
 
 			}
 		}
 	}
 
-
-	public int strPunkte(int points) {
+	public int strPunkte(int points, Charakter charakter) {
 		int input = 8;
 		while (input == 8) {
 			input = scanner.nextInt();
@@ -231,7 +224,7 @@ public class Charakterbuild {
 				break;
 			default:
 				System.out.println("Bitte wähle einen gültigen Wert");
-				strPunkte(points);
+				strPunkte(points, charakter);
 				input = 6;
 
 			}
@@ -241,7 +234,7 @@ public class Charakterbuild {
 		return points;
 	}
 
-	public int conPunkte(int points) {
+	public int conPunkte(int points, Charakter charakter) {
 		int input = 8;
 		while (input == 8) {
 
@@ -274,7 +267,7 @@ public class Charakterbuild {
 				break;
 			default:
 				System.out.println("Bitte wähle einen gültigen Wert");
-				conPunkte(points);
+				conPunkte(points, charakter);
 				input = 6;
 
 			}
@@ -285,7 +278,7 @@ public class Charakterbuild {
 
 	}
 
-	public int dexPunkte(int points) {
+	public int dexPunkte(int points, Charakter charakter) {
 		int input = 8;
 		while (input == 8) {
 
@@ -317,7 +310,7 @@ public class Charakterbuild {
 				break;
 			default:
 				System.out.println("Bitte wähle einen gültigen Wert");
-				dexPunkte(points);
+				dexPunkte(points, charakter);
 				input = 6;
 
 			}
@@ -328,7 +321,7 @@ public class Charakterbuild {
 
 	}
 
-	public int chaPunkte(int points) {
+	public int chaPunkte(int points, Charakter charakter) {
 		int input = 8;
 		while (input == 8) {
 
@@ -360,7 +353,7 @@ public class Charakterbuild {
 				break;
 			default:
 				System.out.println("Bitte wähle einen gültigen Wert");
-				chaPunkte(points);
+				chaPunkte(points, charakter);
 				input = 6;
 
 			}
@@ -371,7 +364,7 @@ public class Charakterbuild {
 
 	}
 
-	public int wisPunkte(int points) {
+	public int wisPunkte(int points, Charakter charakter) {
 		int input = 8;
 		while (input == 8) {
 			input = scanner.nextInt();
@@ -402,7 +395,7 @@ public class Charakterbuild {
 				break;
 			default:
 				System.out.println("Bitte wähle einen gültigen Wert");
-				wisPunkte(points);
+				wisPunkte(points, charakter);
 				input = 6;
 
 			}
@@ -413,7 +406,7 @@ public class Charakterbuild {
 
 	}
 
-	public int intPunkte(int points) {
+	public int intPunkte(int points, Charakter charakter) {
 		int input = 8;
 		while (input == 8) {
 			input = scanner.nextInt();
@@ -444,7 +437,7 @@ public class Charakterbuild {
 				break;
 			default:
 				System.out.println("Bitte wähle einen gültigen Wert");
-				intPunkte(points);
+				intPunkte(points, charakter);
 				input = 6;
 
 			}
