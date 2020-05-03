@@ -5,6 +5,7 @@ import java.util.Iterator;
 
 import Data.Klassen.Klasse;
 import Data.Objekte.Item;
+import Data.Objekte.Weapons;
 import Data.Rasse.Rasse;
 
 public class Charakter {
@@ -29,6 +30,7 @@ public class Charakter {
 
 	Object[] stats = new Object[2]; // [1] = Klasse, [0] = Rasse
 	ArrayList<Item> inv;
+	Weapons[] hand = new Weapons[2]; // [1] = Schild, [0] = Waffe
 
 	public Charakter(String name) {
 		this.name = name;
@@ -50,7 +52,8 @@ public class Charakter {
 
 		System.out.printf("Das bist du " + name + ":\n" + "Du hast " + ((Klasse) stats[1]).getMoney() + " Münzen\n");
 		System.out.println("Das sind deine Stats:");
-		System.out.printf("Stärke:\t\t\t " + calcSTR() + "\t\t Mod: " + calcModSTR() + "\n" 
+		System.out.printf("Lebenspunkte:\t\t"+ ((Klasse) stats[1]).getHealth() +"/"+((Klasse)stats[1]).getMaxHealth()+"\n"
+				+ "Stärke:\t\t\t " + calcSTR() + "\t\t Mod: " + calcModSTR() + "\n" 
 				+ "Konstitution:\t\t " + calcCON() + "\t\t Mod: " + calcModKon() + "\n"
 				+ "Geschicklichkeit:\t " + calcDEX() + "\t\t Mod: " + calcModDEX() + "\n"
 				+ "Charisma:\t\t " + calcCHA() + "\t\t Mod: " + calcModCHA() + "\n"
@@ -67,6 +70,36 @@ public class Charakter {
 		for (Item item : inv) {
 			System.out.println(item.getName() + "\n" + item.getDescription());
 		}
+	}
+	
+	
+	
+	/*
+	 * 
+	 * EQUIPPING
+	 * 
+	 */
+	
+	public void equipWeapon(String name) {
+		
+		
+		for(int i =0; i< inv.size(); i++) {
+			if(name.equals(inv.get(i).getName())){
+				if(hand[0]== null) {
+					
+				
+				hand[0]= (Weapons) inv.get(i);
+				inv.remove(i);
+				return;
+				}else {
+					inv.add(hand[0]);
+					hand[0]= (Weapons) inv.get(i);
+					inv.remove(i);
+					return;
+				}
+			}
+		}
+		
 	}
 
 	/*
