@@ -82,50 +82,50 @@ public class Charakterbuild {
 			switch (eingabe) {
 			case 1:
 				System.out.println("Du Bist nun ein Barbar \nDu erhälst nun 500 Münzen");
-				charakter.takeClass(new Barbar(14, 2, 1, 1, 0, 0, 0, 0, 500));
+				charakter.takeClass(new Barbar(14, 12, 1, 1, 0, 0, 0, 0, 500));
 				charakter.invAdd(new Axe("Axt", "Standart-Axt eines Barbaren"));
 
 				break;
 			case 2:
 				System.out.println("Du Bist nun ein Magier \nDu erhälst nun 500 Münzen");
-				charakter.takeClass(new Mage(5, 0, 0, 0, 0, 2, 0, 3, 500));
+				charakter.takeClass(new Mage(5, 8, 0, 0, 0, 2, 0, 3, 500));
 				charakter.invAdd(new Staff("Stab", "Ein gewöhnlicher Stab ausb Holz"));
 
 				break;
 			case 3:
 				System.out.println("Du Bist nun ein Paladin \nDu erhälst nun 900 Münzen");
-				charakter.takeClass(new Paladin(16, 2, 0, 1, 0, 1, 0, 0, 900));
+				charakter.takeClass(new Paladin(16, 12, 0, 1, 0, 1, 0, 0, 900));
 				charakter.invAdd(new Maul("Prügel", "Ein Heiliger-Prügel mit der Kraft der Götter versehen"));
 
 				break;
 			case 4:
 				System.out.println("Du Bist nun ein Priester \nDu erhälst nun 700 Münzen");
-				charakter.takeClass(new Priest(7, 1, 1, 1, 1, 0, 0, 0, 700));
+				charakter.takeClass(new Priest(7, 12, 1, 1, 1, 0, 0, 0, 700));
 				charakter.invAdd(new Staff("Stab", "Ein gewöhnlicher Stab aus Holz mit der Kraft der Götter versehen"));
 
 				break;
 			case 5:
 				System.out.println("Du Bist nun ein Ranger \nDu erhälst nun 800 Münzen");
-				charakter.takeClass(new Ranger(10, 1, 0, 0, 2, 0, 1, 0, 800));
+				charakter.takeClass(new Ranger(10, 10, 0, 0, 2, 0, 1, 0, 800));
 				charakter.invAdd(
 						new Bow("Bogen", "Ein kurviges Gestell und immer angespannt-- Könnte ne Frau sein ", 65.00));
 
 				break;
 			case 6:
 				System.out.println("Du Bist nun ein Schurke \nDu erhälst nun 1000 Münzen");
-				charakter.takeClass(new Rogue(10, 1, 0, 0, 1, 1, 0, 1, 1000));
+				charakter.takeClass(new Rogue(10, 9, 0, 0, 1, 1, 0, 1, 1000));
 				charakter.invAdd(new Dagger("Dolch", "Pieks, Pieks"));
 
 				break;
 			case 7:
 				System.out.println("Du Bist nun ein Hexenmeister \nDu erhälst nun 700 Münzen");
-				charakter.takeClass(new Warlock(5, 0, 0, 0, 0, 2, 1, 2, 700));
+				charakter.takeClass(new Warlock(5, 8, 0, 0, 0, 2, 1, 2, 700));
 				charakter.invAdd(new Staff("Stab", "Ein gewöhnlicher Stab aus Holz mit Dömonischer Energie "));
 
 				break;
 			case 8:
 				System.out.println("Du Bist nun ein Krieger \nDu erhälst nun 800 Münzen");
-				charakter.takeClass(new Warrior(16, 1, 2, 0, 1, 0, 0, 0, 800));
+				charakter.takeClass(new Warrior(16, 12, 2, 0, 1, 0, 0, 0, 800));
 				charakter.invAdd(
 						new Sword("Schwert", "Ein Einsatz erprobtes Schwert was schon viele Kehlen von innen sah "));
 				charakter.invAdd(new Shield("Schild",

@@ -24,6 +24,7 @@ public class Klasse {
 		this.wis = wis;
 		this.str = str;
 		this.intel = intel;
+		
 	}
 
 	public int getMaxHealth() {
