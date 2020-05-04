@@ -55,7 +55,10 @@ public class Charakter {
 
 		System.out.printf("Das bist du " + name + ":\n" + "Du hast " + klassse.getMoney() + " Münzen\n");
 		System.out.println("Das sind deine Stats:");
-		System.out.printf("Lebenspunkte:\t\t" + life() + "/"+ maxLife() + "\n" + "Stärke:\t\t\t " + calcSTR()
+		System.out.printf("charlevelup " + exp.charLevelUp(450) + " " +
+				"Exp " + exp.getExperience() +"/" + exp.berechneLevelXP() + "\n" 
+		+ "Level: " + exp.getLevel() + "\n"
+		+ "Lebenspunkte:\t\t" + life() + "/"+ maxLife() + "\n" + "Stärke:\t\t\t " + calcSTR()
 		+ "\t\t Mod: " + calcModSTR() + "\n" + "Konstitution:\t\t " + calcCON() + "\t\t Mod: " + calcModKon()
 		+ "\n" + "Geschicklichkeit:\t " + calcDEX() + "\t\t Mod: " + calcModDEX() + "\n" + "Charisma:\t\t "
 		+ calcCHA() + "\t\t Mod: " + calcModCHA() + "\n" + "Weisheit:\t\t " + calcWIS() + "\t\t Mod: "
@@ -266,7 +269,6 @@ public class Charakter {
 		this.klassse = klasse;
 	}
 
-	
 	public int life() {
 
         return klassse.getHealth() + getConMod();
