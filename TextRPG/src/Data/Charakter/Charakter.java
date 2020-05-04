@@ -53,15 +53,19 @@ public class Charakter {
 	public void showChar() {
 		calcSkill();
 
-		System.out.printf("Das bist du " + name + ":\n" + "Du hast " + klassse.getMoney() + " Münzen\n\n");
+		System.out.printf("Das bist du " + name + ":\n" + "Du hast " + klassse.getMoney() + " Münzen\n");
 		System.out.println("Das sind deine Stats:");
 		System.out.println("Du bist Level: "+ exp.getLevel()+"\n");
 		System.out.println("Du brauchst noch : "+ exp.getExperienceToNextLevel()+" EXP bis zum nächsten Level\n");
 		System.out.printf("Lebenspunkte:\t\t" + life() + "/"+ maxLife() + "\n\n" + "Stärke:\t\t\t " + calcSTR()
+		System.out.printf("charlevelup " + exp.charLevelUp(450) + " " +
+				"Exp " + exp.getExperience() +"/" + exp.berechneLevelXP() + "\n" 
+		+ "Level: " + exp.getLevel() + "\n"
+		+ "Lebenspunkte:\t\t" + life() + "/"+ maxLife() + "\n" + "Stärke:\t\t\t " + calcSTR()
 		+ "\t\t Mod: " + calcModSTR() + "\n" + "Konstitution:\t\t " + calcCON() + "\t\t Mod: " + calcModKon()
 		+ "\n" + "Geschicklichkeit:\t " + calcDEX() + "\t\t Mod: " + calcModDEX() + "\n" + "Charisma:\t\t "
 		+ calcCHA() + "\t\t Mod: " + calcModCHA() + "\n" + "Weisheit:\t\t " + calcWIS() + "\t\t Mod: "
-		+ calcModWIS() + "\n" + "Intelligenz:\t\t " + calcINT() + "\t\t Mod: " + calcModINT() + "\n\n");
+		+ calcModWIS() + "\n" + "Intelligenz:\t\t " + calcINT() + "\t\t Mod: " + calcModINT() + "\n");
 
 		System.out.printf("Dein Inventar:\n");
 		showInv();
