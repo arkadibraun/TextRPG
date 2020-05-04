@@ -28,7 +28,7 @@ public class Charakter {
 	private int chaMod;
 	private int wisMod;
 	private int intMod;
-
+//dnfgliksd
 	
 	ArrayList<Item> inv;
 	Weapons[] hand = new Weapons[2]; // [1] = Schild, [0] = Waffe
