@@ -302,7 +302,7 @@ public class Charakter {
 
     public int maxLife() {
 
-        return klassse.getHealth() + getConMod() + ((exp.getLevel()-1) * 7);
+        return klassse.getHealth() + getConMod() + ((exp.getLevel()-1) * 5);
     }
 	
 	/*
